@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:unitedswiftcourier.com)",
+      "Bash(npm view:*)",
+      "Bash(npx prisma init:*)",
+      "Bash(npx shadcn@latest init:*)",
+      "Bash(npx shadcn@latest add:*)",
+      "Bash(npx prisma generate:*)",
+      "Bash(cd:*)",
+      "Bash(python3:*)"
+    ]
+  }
+}
