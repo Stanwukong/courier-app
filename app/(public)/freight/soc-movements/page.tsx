@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container as ContainerIcon, Warehouse, Wrench, ArrowLeftRight } from "lucide-react";
 import { ServicePageLayout } from "@/components/services/service-page-layout";
+import { BANNER_IMAGES, SERVICE_DETAIL_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "SOC Movements",
@@ -10,6 +11,8 @@ export default function SocMovementsPage() {
   return (
     <ServicePageLayout
       title="SOC Movements"
+      image={SERVICE_DETAIL_IMAGES.socMovements}
+      bannerImage={BANNER_IMAGES.containers}
       breadcrumbs={[
         { label: "Freight", href: "/freight" },
         { label: "SOC Movements" },

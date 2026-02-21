@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Target, Eye, Award, Clock, Users, ThumbsUp } from "lucide-react";
 import PageBanner from "@/components/shared/page-banner";
 import Container from "@/components/shared/container";
 import SectionHeading from "@/components/shared/section-heading";
 import IconCard from "@/components/shared/icon-card";
 import { COMPANY_INFO } from "@/lib/constants";
+import { BANNER_IMAGES, ABOUT_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About Us",
 };
 
 const teamMembers = [
-  { name: "James Mitchell", role: "Chief Executive Officer" },
-  { name: "Sarah Okonkwo", role: "Operations Director" },
-  { name: "David Chen", role: "Logistics Manager" },
-  { name: "Maria Rodriguez", role: "Customer Relations" },
+  { name: "James Mitchell", role: "Chief Executive Officer", image: ABOUT_IMAGES.team.jamesMitchell },
+  { name: "Sarah Okonkwo", role: "Operations Director", image: ABOUT_IMAGES.team.sarahOkonkwo },
+  { name: "David Chen", role: "Logistics Manager", image: ABOUT_IMAGES.team.davidChen },
+  { name: "Maria Rodriguez", role: "Customer Relations", image: ABOUT_IMAGES.team.mariaRodriguez },
 ];
 
 export default function AboutPage() {
@@ -25,13 +27,16 @@ export default function AboutPage() {
         breadcrumbs={[
           { label: "About Us" },
         ]}
+        backgroundImage={BANNER_IMAGES.warehouse}
       />
 
       {/* Company Story */}
       <section className="py-16 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="h-80 rounded-xl bg-gradient-to-br from-slate-200 to-slate-300" />
+            <div className="relative h-80 overflow-hidden rounded-xl">
+              <Image src={ABOUT_IMAGES.ourStory} alt="Our logistics operations" fill className="object-cover" />
+            </div>
             <div className="space-y-4">
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
                 Our Story
@@ -100,7 +105,9 @@ export default function AboutPage() {
                 key={member.name}
                 className="flex flex-col items-center text-center"
               >
-                <div className="mb-4 size-28 rounded-full bg-gradient-to-br from-slate-200 to-slate-300" />
+                <div className="relative mb-4 size-28 overflow-hidden rounded-full">
+                  <Image src={member.image} alt={member.name} fill className="object-cover" />
+                </div>
                 <h3 className="text-lg font-semibold text-slate-900">
                   {member.name}
                 </h3>

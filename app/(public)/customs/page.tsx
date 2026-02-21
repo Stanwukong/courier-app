@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import PageBanner from "@/components/shared/page-banner";
 import Container from "@/components/shared/container";
 import SectionHeading from "@/components/shared/section-heading";
+import { BANNER_IMAGES, CUSTOMS_CARD_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Customs Services",
@@ -15,12 +17,14 @@ const customsServices = [
     href: "/customs/export-import",
     description:
       "Complete customs clearance solutions for both exports and imports, including documentation preparation, tariff classification, duty optimization, and full regulatory compliance.",
+    image: CUSTOMS_CARD_IMAGES.exportImport,
   },
   {
     title: "Importer's Representative",
     href: "/customs/importers-representative",
     description:
       "Authorized representation for importers, acting as your liaison with customs authorities to manage documentation, resolve disputes, and ensure ongoing regulatory compliance.",
+    image: CUSTOMS_CARD_IMAGES.importersRep,
   },
 ];
 
@@ -31,6 +35,7 @@ export default function CustomsPage() {
         title="Customs Services"
         subtitle="Expert customs clearance and compliance solutions"
         breadcrumbs={[{ label: "Customs" }]}
+        backgroundImage={BANNER_IMAGES.default}
       />
 
       <section className="py-16 bg-white">
@@ -48,7 +53,9 @@ export default function CustomsPage() {
                 className="group block"
               >
                 <div className="rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm transition-all hover:shadow-lg hover:border-orange-200">
-                  <div className="h-52 bg-gradient-to-br from-slate-200 to-slate-300" />
+                  <div className="relative h-52">
+                    <Image src={service.image} alt={service.title} fill className="object-cover" />
+                  </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-slate-900 group-hover:text-orange-600 transition-colors">
                       {service.title}

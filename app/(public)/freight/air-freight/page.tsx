@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Zap, Plane, AlertTriangle, Thermometer } from "lucide-react";
 import { ServicePageLayout } from "@/components/services/service-page-layout";
+import { BANNER_IMAGES, SERVICE_DETAIL_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Air Freight",
@@ -10,6 +11,8 @@ export default function AirFreightPage() {
   return (
     <ServicePageLayout
       title="Air Freight"
+      image={SERVICE_DETAIL_IMAGES.airFreight}
+      bannerImage={BANNER_IMAGES.containers}
       breadcrumbs={[
         { label: "Freight", href: "/freight" },
         { label: "Air Freight" },

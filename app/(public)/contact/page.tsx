@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/shared/page-banner";
+import { BANNER_IMAGES } from "@/lib/images";
 import Container from "@/components/shared/container";
 import { ContactForm } from "@/components/contact/contact-form";
 import { ContactInfo } from "@/components/contact/contact-info";
@@ -18,6 +19,7 @@ export default function ContactPage() {
           { label: "Home", href: "/" },
           { label: "Contact Us" },
         ]}
+        backgroundImage={BANNER_IMAGES.default}
       />
 
       <section className="py-16 md:py-24">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Zap, MapPin, Radio, DollarSign } from "lucide-react";
 import { ServicePageLayout } from "@/components/services/service-page-layout";
+import { BANNER_IMAGES, SERVICE_DETAIL_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Domestic Freight",
@@ -10,6 +11,8 @@ export default function DomesticFreightPage() {
   return (
     <ServicePageLayout
       title="Domestic Freight"
+      image={SERVICE_DETAIL_IMAGES.domesticFreight}
+      bannerImage={BANNER_IMAGES.default}
       breadcrumbs={[
         { label: "Services", href: "/services" },
         { label: "Domestic Freight" },

@@ -4,8 +4,10 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HERO_IMAGES } from "@/lib/images";
 
 const slides = [
   {
@@ -14,6 +16,7 @@ const slides = [
       "Delivering excellence worldwide with reliable courier and freight services",
     cta: { label: "Get Started", href: "/contact" },
     gradient: "bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800",
+    image: HERO_IMAGES.globalLogistics,
   },
   {
     headline: "Fast & Secure Delivery",
@@ -21,6 +24,7 @@ const slides = [
       "Your packages, our priority. Track shipments in real-time",
     cta: { label: "Track Shipment", href: "#track" },
     gradient: "bg-gradient-to-r from-slate-800 via-slate-900 to-blue-900",
+    image: HERO_IMAGES.deliveryTruck,
   },
   {
     headline: "10+ Years of Excellence",
@@ -28,6 +32,7 @@ const slides = [
       "Trusted by businesses worldwide for freight forwarding and logistics",
     cta: { label: "Learn More", href: "/about" },
     gradient: "bg-gradient-to-r from-blue-900 via-slate-800 to-slate-900",
+    image: HERO_IMAGES.shippingContainers,
   },
 ];
 
@@ -78,8 +83,15 @@ export default function HeroCarousel() {
               <div
                 className={`${slide.gradient} relative flex h-[500px] items-center justify-center md:h-[600px]`}
               >
+                <Image
+                  src={slide.image}
+                  alt={slide.headline}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                />
                 {/* Dark overlay for text readability */}
-                <div className="absolute inset-0 bg-black/30" />
+                <div className="absolute inset-0 bg-black/50" />
 
                 <div className="relative z-10 mx-auto max-w-4xl px-4 text-center text-white">
                   <h1 className="text-4xl font-bold leading-tight md:text-6xl">

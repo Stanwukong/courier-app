@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
 interface Breadcrumb {
@@ -10,16 +11,30 @@ interface PageBannerProps {
   title: string;
   subtitle?: string;
   breadcrumbs?: Breadcrumb[];
+  backgroundImage?: string;
 }
 
 export default function PageBanner({
   title,
   subtitle,
   breadcrumbs,
+  backgroundImage,
 }: PageBannerProps) {
   return (
-    <section className="bg-gradient-to-r from-slate-900 to-slate-800 py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className={`${backgroundImage ? 'relative overflow-hidden' : 'bg-gradient-to-r from-slate-900 to-slate-800'} py-16 md:py-20`}>
+      {backgroundImage && (
+        <>
+          <Image
+            src={backgroundImage}
+            alt={title}
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </>
+      )}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <h1 className="text-3xl font-bold text-white md:text-4xl">{title}</h1>
         {subtitle && (
           <p className="mt-3 max-w-2xl text-lg text-slate-300">{subtitle}</p>

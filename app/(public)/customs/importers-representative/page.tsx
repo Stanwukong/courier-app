@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Handshake, Scale, FolderOpen, MessageSquare } from "lucide-react";
 import { ServicePageLayout } from "@/components/services/service-page-layout";
+import { BANNER_IMAGES, SERVICE_DETAIL_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Importer's Representative",
@@ -10,6 +11,8 @@ export default function ImportersRepresentativePage() {
   return (
     <ServicePageLayout
       title="Importer's Representative"
+      image={SERVICE_DETAIL_IMAGES.importersRep}
+      bannerImage={BANNER_IMAGES.default}
       breadcrumbs={[
         { label: "Customs", href: "/customs" },
         { label: "Importer's Representative" },

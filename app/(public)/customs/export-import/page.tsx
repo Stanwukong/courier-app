@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FileText, Tag, DollarSign, ShieldCheck } from "lucide-react";
 import { ServicePageLayout } from "@/components/services/service-page-layout";
+import { BANNER_IMAGES, SERVICE_DETAIL_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Export & Import Services",
@@ -10,6 +11,8 @@ export default function ExportImportPage() {
   return (
     <ServicePageLayout
       title="Export & Import Services"
+      image={SERVICE_DETAIL_IMAGES.exportImport}
+      bannerImage={BANNER_IMAGES.default}
       breadcrumbs={[
         { label: "Customs", href: "/customs" },
         { label: "Export & Import" },

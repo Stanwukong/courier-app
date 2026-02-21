@@ -10,6 +10,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import PageBanner from "@/components/shared/page-banner";
+import { BANNER_IMAGES } from "@/lib/images";
 import Container from "@/components/shared/container";
 import SectionHeading from "@/components/shared/section-heading";
 import IconCard from "@/components/shared/icon-card";
@@ -65,6 +66,7 @@ export default function LogisticsPage() {
         title="Logistics Services"
         subtitle="End-to-end logistics solutions to power your supply chain"
         breadcrumbs={[{ label: "Logistics" }]}
+        backgroundImage={BANNER_IMAGES.warehouse}
       />
 
       {/* Intro Section */}

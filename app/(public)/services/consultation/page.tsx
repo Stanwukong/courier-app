@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BarChart3, PiggyBank, Route, Scale } from "lucide-react";
 import { ServicePageLayout } from "@/components/services/service-page-layout";
+import { BANNER_IMAGES, SERVICE_DETAIL_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Consultation",
@@ -10,6 +11,8 @@ export default function ConsultationPage() {
   return (
     <ServicePageLayout
       title="Consultation"
+      image={SERVICE_DETAIL_IMAGES.consultation}
+      bannerImage={BANNER_IMAGES.default}
       breadcrumbs={[
         { label: "Services", href: "/services" },
         { label: "Consultation" },

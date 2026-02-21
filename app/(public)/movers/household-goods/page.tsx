@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PackageOpen, Wrench, Warehouse, ShieldCheck } from "lucide-react";
 import { ServicePageLayout } from "@/components/services/service-page-layout";
+import { BANNER_IMAGES, SERVICE_DETAIL_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Household Goods Moving",
@@ -10,6 +11,8 @@ export default function HouseholdGoodsPage() {
   return (
     <ServicePageLayout
       title="Household Goods Moving"
+      image={SERVICE_DETAIL_IMAGES.householdGoods}
+      bannerImage={BANNER_IMAGES.truck}
       breadcrumbs={[
         { label: "Movers", href: "/movers" },
         { label: "Household Goods" },

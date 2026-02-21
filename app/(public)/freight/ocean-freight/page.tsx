@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container as ContainerIcon, MapPin, Ship, Package } from "lucide-react";
 import { ServicePageLayout } from "@/components/services/service-page-layout";
+import { BANNER_IMAGES, SERVICE_DETAIL_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Ocean Freight",
@@ -10,6 +11,8 @@ export default function OceanFreightPage() {
   return (
     <ServicePageLayout
       title="Ocean Freight"
+      image={SERVICE_DETAIL_IMAGES.oceanFreight}
+      bannerImage={BANNER_IMAGES.containers}
       breadcrumbs={[
         { label: "Freight", href: "/freight" },
         { label: "Ocean Freight" },

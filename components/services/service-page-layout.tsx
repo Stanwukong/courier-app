@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import PageBanner from "@/components/shared/page-banner";
@@ -23,6 +24,8 @@ interface ServicePageLayoutProps {
   features: Feature[];
   breadcrumbs: { label: string; href?: string }[];
   relatedServices?: RelatedService[];
+  image?: string;
+  bannerImage?: string;
 }
 
 export function ServicePageLayout({
@@ -31,18 +34,26 @@ export function ServicePageLayout({
   features,
   breadcrumbs,
   relatedServices,
+  image,
+  bannerImage,
 }: ServicePageLayoutProps) {
   const paragraphs = description.split("\n\n");
 
   return (
     <>
-      <PageBanner title={title} breadcrumbs={breadcrumbs} />
+      <PageBanner title={title} breadcrumbs={breadcrumbs} backgroundImage={bannerImage} />
 
       {/* Description Section */}
       <section className="py-16 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="h-80 rounded-xl bg-gradient-to-br from-slate-200 to-slate-300" />
+            {image ? (
+              <div className="relative h-80 overflow-hidden rounded-xl">
+                <Image src={image} alt={title} fill className="object-cover" />
+              </div>
+            ) : (
+              <div className="h-80 rounded-xl bg-gradient-to-br from-slate-200 to-slate-300" />
+            )}
             <div className="space-y-4">
               {paragraphs.map((paragraph, index) => (
                 <p key={index} className="text-slate-600 leading-relaxed">
